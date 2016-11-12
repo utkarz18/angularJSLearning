@@ -9,14 +9,9 @@
     $scope.items = "";
     $scope.message = "";
     $scope.msgColor = "";
-    $scope.brdrColor = "";
+    $scope.brdrColor = "black";
 
     $scope.checkLunch = function(){
-      if($scope.items == "" || $scope.items == " "){
-        $scope.msgColor = $scope.brdrColor = "red";
-        $scope.message = "Please enter data first";
-        return;
-      }
       var itemList = $scope.items.split(',');
       var count = 0;
       for(var i = 0; i < itemList.length; i++){
