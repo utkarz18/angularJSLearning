@@ -15,7 +15,7 @@
       var itemList = $scope.items.split(',');
       var count = 0;
       for(var i = 0; i < itemList.length; i++){
-        if(itemList[i] != "" && itemList[i] != " ")
+        if(itemList[i].trim() != "")
           count += 1;
       }
 
