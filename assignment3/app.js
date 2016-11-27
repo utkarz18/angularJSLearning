@@ -66,8 +66,9 @@
   function FoundItems(){
     var ddo = {
       templateUrl : 'foundItems.html',
+      restrict : 'E',
       scope : {
-        founditems : '<',
+        foundItems : '<',
         onRemove : '&'
       },
       controller: FoundItemsDirectiveController,
