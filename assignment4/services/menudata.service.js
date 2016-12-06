@@ -29,6 +29,7 @@
       })
       .then(function(response){
         var items = response.data.menu_items;
+        return items;
       })
       .catch(function(error){
         console.log("Something went wrong!!");

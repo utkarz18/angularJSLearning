@@ -1,15 +1,10 @@
 (function(){
   'use strict';
   angular.module('data')
-  .component('itemsComponent', {
-    templateUrl: '/templates/itemComponent.html',
-    controller: ItemsComponentController,
+  .component('menuItems', {
+    templateUrl: '/templates/itemsComponent.html',
     bindings: {
       items: '<'
     }
   });
-
-  function ItemsComponentController(){
-    var $ctrl = this;
-  }
 })();

@@ -26,8 +26,19 @@
       })
 
       .state('items', {
-        url: '/items',
-        templateUrl: 'templates/itemsTemplate.html'
-      })
+        url: '/items/{categoryShortName}',
+        templateUrl: 'templates/itemsTemplate.html',
+        controller: 'MenuItemsController as menu',
+        resolve: {
+          menuItems: ['$stateParams', 'MenuDataService',
+                      function($stateParams, MenuDataService){
+                        return MenuDataService.getItemsForCategory($stateParams.categoryShortName)
+                          .then(function (items){
+                            return items;
+                          })
+                      }]
+        }
+
+      });
   }
 })();
