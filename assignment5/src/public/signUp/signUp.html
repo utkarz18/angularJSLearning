@@ -1,0 +1,56 @@
+<div class="container">
+  <h2 >Sign Up Form</h2>
+  <div>
+    Fill the details below and sign up with us...
+  </div>
+  <br><br><br>
+  <form class="form-horizontal" name="signUpForm" method="POST" novalidate>
+    <div class="form-group">
+      <label class="control-label col-xs-2 col-sm-2 col-md-2">First Name:</label>
+      <div class="col-xs-4 col-sm-4 col-md-4">
+        <input type="text" class="form-control" name="firstname" placeholder="Enter First Name"
+               ng-model="reg.firstname" minlength ="3" required>
+      </div>
+      <span ng-if="signUpForm.firstname.$invalid && signUpForm.firstname.$touched">
+        First Name must be atleast 3 characters long
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-xs-2 col-sm-2 col-md-2">Last Name:</label>
+      <div class="col-xs-4 col-sm-4 col-md-4">
+        <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name"
+               ng-model="reg.lastname">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-xs-2 col-sm-2 col-md-2">Email:</label>
+      <div class="col-xs-4 col-sm-4 col-md-4">
+        <input type="email" class="form-control" name="email" placeholder="Email"
+               ng-model="reg.email" required>
+      </div>
+      <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+            Must be a valid email address: username@domain.com format
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-xs-2 col-sm-2 col-md-2">Phone:</label>
+      <div class="col-xs-4 col-sm-4 col-md-4">
+        <input type="text" class="form-control" name="phone" placeholder="Phone ###-###=####"
+          ng-model="reg.phone" pattern="(\d{3})-(\d{3})-(\d{4})" required>
+      </div>
+      <span ng-if="(signUpForm.phone.$invalid ||
+            signUpForm.phone.$error.required) && signUpForm.phone.$touched">
+            Phone must be in the format: ###-###-####
+      </span>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn btn-success" ng-disabled="signUpForm.$invalid" ng-click="">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
