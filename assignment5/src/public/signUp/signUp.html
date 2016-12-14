@@ -20,8 +20,11 @@
       <label class="control-label col-xs-2 col-sm-2 col-md-2">Last Name:</label>
       <div class="col-xs-4 col-sm-4 col-md-4">
         <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name"
-               ng-model="reg.user.lastname">
+               ng-model="reg.user.lastname" minlength ="3" required>
       </div>
+      <span ng-if="signUpForm.lastname.$invalid && signUpForm.lastname.$touched">
+        last Name must be atleast 3 characters long
+      </span>
     </div>
 
     <div class="form-group">
