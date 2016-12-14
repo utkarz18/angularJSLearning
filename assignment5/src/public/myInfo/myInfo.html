@@ -1,0 +1,33 @@
+<div ng-if="!info.status">
+  <br><br><br><br><br>
+  <div class="text-center">
+      <h2>Not Signed Up Yet.</h2>
+      <h1><a href="" ui-sref="public.signUp"> Sign up Now!</a></h1>
+  </div>
+  <br><br><br><br><br>
+</div>
+<div class="container" ng-if="info.status">
+  <h2 >Welcome to David Chu's China Bistro!!</h2>
+  <div>
+    Here are your details...
+  </div>
+  <br><br><br>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <label>First Name : </label><span style="margin-left:3%">{{info.user.firstname}}</span><br><br>
+        <label>Last Name : </label><span style="margin-left:3%">{{info.user.lastname}}</span><br><br>
+        <label>Email : </label><span style="margin-left:3%">{{info.user.email}}</span><br><br>
+        <label>Phone : </label><span style="margin-left:3%">{{info.user.phone}}</span><br><br>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="row">
+          <label>Your Favorite Dish<label>
+        </div>
+        <div class="row">
+          <img width="250" height="150" ng-src="{{info.basePath}}/images/{{info.user.favdish}}.jpg" alt="{{info.user.favdish}}">
+          <br><label>Dish Name : </label><span>{{info.user.dishName}}</span><br><br>
+          <label>Description : </label><span>{{info.user.dishDescription}}</span>
+        </div>
+      </div>
+    </div>
+</div>

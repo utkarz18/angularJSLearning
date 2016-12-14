@@ -4,12 +4,12 @@
     Fill the details below and sign up with us...
   </div>
   <br><br><br>
-  <form class="form-horizontal" name="signUpForm" method="POST" novalidate>
+  <form class="form-horizontal" name="signUpForm" method="POST" novalidate autocomplete="off">
     <div class="form-group">
       <label class="control-label col-xs-2 col-sm-2 col-md-2">First Name:</label>
       <div class="col-xs-4 col-sm-4 col-md-4">
         <input type="text" class="form-control" name="firstname" placeholder="Enter First Name"
-               ng-model="reg.firstname" minlength ="3" required>
+               ng-model="reg.user.firstname" minlength ="3" required>
       </div>
       <span ng-if="signUpForm.firstname.$invalid && signUpForm.firstname.$touched">
         First Name must be atleast 3 characters long
@@ -20,7 +20,7 @@
       <label class="control-label col-xs-2 col-sm-2 col-md-2">Last Name:</label>
       <div class="col-xs-4 col-sm-4 col-md-4">
         <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name"
-               ng-model="reg.lastname">
+               ng-model="reg.user.lastname">
       </div>
     </div>
 
@@ -28,7 +28,7 @@
       <label class="control-label col-xs-2 col-sm-2 col-md-2">Email:</label>
       <div class="col-xs-4 col-sm-4 col-md-4">
         <input type="email" class="form-control" name="email" placeholder="Email"
-               ng-model="reg.email" required>
+               ng-model="reg.user.email" required>
       </div>
       <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
             Must be a valid email address: username@domain.com format
@@ -39,7 +39,7 @@
       <label class="control-label col-xs-2 col-sm-2 col-md-2">Phone:</label>
       <div class="col-xs-4 col-sm-4 col-md-4">
         <input type="text" class="form-control" name="phone" placeholder="Phone ###-###=####"
-          ng-model="reg.phone" pattern="(\d{3})-(\d{3})-(\d{4})" required>
+          ng-model="reg.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})" required>
       </div>
       <span ng-if="(signUpForm.phone.$invalid ||
             signUpForm.phone.$error.required) && signUpForm.phone.$touched">
@@ -48,9 +48,23 @@
     </div>
 
     <div class="form-group">
+      <label class="control-label col-xs-2 col-sm-2 col-md-2">Menu number:</label>
+      <div class="col-xs-4 col-sm-4 col-md-4">
+        <input type="text" class="form-control" name="favdish" placeholder="Favorite dish menu No.. eg: A1"
+          ng-model="reg.user.favdish" ng-keyup="reg.checkMenuItem(reg.user.favdish)" required minlength="2" ng-maxlength="2">
+      </div>
+      <span ng-if="reg.flag">
+            No such menu number exists
+      </span>
+    </div>
+
+    <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button class="btn btn-success" ng-disabled="signUpForm.$invalid" ng-click="">Submit</button>
+        <button class="btn btn-success"  ng-disabled="signUpForm.$invalid || reg.btn_flag" ng-click="reg.saveInfo(reg.user)">Submit</button>
       </div>
     </div>
   </form>
+  <div class="text-center" ng-if="reg.saveStatus">
+    Your information has been saved
+  </div>
 </div>
