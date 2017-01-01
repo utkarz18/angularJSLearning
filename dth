@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+<head>  
+<title>Dth Recharge</title>
+
+<link rel="StyleSheet"href="dthform.css">
+<script src="dthjavaScript.js"></script>
+</head>
+
+<body>
+
+<form id="rechargeForm">
+  <fielset>
+    <legend>Enter Your Detalis</legend>
+	<input type="hidden" name="client_id" value="10356">
+	<input type="hidden" name="client_key" value="e1k97j1plhgdrqc0b8olannbxnnilcnf">
+    <ol>
+      <li><label for="mn">Dth No</label></li>
+      <li><input type="text" id="mn" name="custid"></li>
+    </ol>
+   
+   	<ol>
+	<li><label for="op">Select Operator</label></li>
+	<li><select name="operator_code"><option value="">Choose Your Operator</option><option value="5">Airtel</option><option value="2">DishTv</option> <option value="1">Tata Sky</option> <option value="4">Videocon D2h</option> <option value="3">Big Tv</option> <option value="6">Sun Tv</option>
+</select></li>
+</ol>
+
+<ol>
+      <li><label for="amt">Amount</label></li>
+      <li><input type="test" id="amt" name="amount" /></li>
+    </ol>
+	
+	
+<input type="hidden" name="live" value="true">
+
+	
+	
+    
+    <ol class="buttons">
+      <li><input type="button" class="recharge" value="FillCharge" onclick="onSubmit()"/></li>
+      </ol>
+  </fieldset>
+
+</form>
+
+
+</body>
+
+</html>
