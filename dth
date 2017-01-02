@@ -4,45 +4,38 @@
 <title>Dth Recharge</title>
 
 <link rel="StyleSheet"href="dthform.css">
-<script src="dthjavaScript.js"></script>
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
 </head>
 
-<body>
-
+<body ng-app="dthModule">
+<div ng-controller = "DthController as dth">
 <form id="rechargeForm">
   <fielset>
-    <legend>Enter Your Detalis</legend>
-	<input type="hidden" name="client_id" value="10356">
-	<input type="hidden" name="client_key" value="e1k97j1plhgdrqc0b8olannbxnnilcnf">
-    <ol>
-      <li><label for="mn">Dth No</label></li>
-      <li><input type="text" id="mn" name="custid"></li>
-    </ol>
+    <legend>Enter Your Details</legend>
+    <label for="mn">Dth No</label>
+	<input type="text" id="mn" name="custid" ng-model="dth.custid"></br>
    
-   	<ol>
-	<li><label for="op">Select Operator</label></li>
-	<li><select name="operator_code"><option value="">Choose Your Operator</option><option value="5">Airtel</option><option value="2">DishTv</option> <option value="1">Tata Sky</option> <option value="4">Videocon D2h</option> <option value="3">Big Tv</option> <option value="6">Sun Tv</option>
-</select></li>
-</ol>
-
-<ol>
-      <li><label for="amt">Amount</label></li>
-      <li><input type="test" id="amt" name="amount" /></li>
-    </ol>
+	<label for="op">Select Operator</label>
+	<select name="operator_code" ng-model="dth.opCode">
+		<option value="">Choose Your Operator</option>
+		<option value="5">Airtel</option>
+		<option value="2">DishTv</option>
+		<option value="1">Tata Sky</option>
+		<option value="4">Videocon D2h</option>
+		<option value="3">Big Tv</option>
+		<option value="6">Sun Tv</option>
+	</select></br>
 	
-	
-<input type="hidden" name="live" value="true">
-
-	
-	
-    
-    <ol class="buttons">
-      <li><input type="button" class="recharge" value="FillCharge" onclick="onSubmit()"/></li>
-      </ol>
+    <label for="amt">Amount</label>
+    <input type="test" id="amt" name="amount" ng-model="dth.amount"/></br>
+    <button class="recharge" ng-click="dth.fillCharge();">FillCharge</button>
+	</br>
+	{{dth.message}}
   </fieldset>
 
 </form>
-
+</div>
 
 </body>
 
