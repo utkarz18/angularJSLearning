@@ -8,7 +8,7 @@
 	function DthController(DthService){
 		var dth = this;
 		dth.client_id = "10356";
-		dth.client_key = "rfuzoqsr0u8v36glg8wn11c5gbs6gtfe";
+		dth.client_key = "zy0ckhworcr9yf52slj7vhjzb6qmbwlf";
 		dth.msisdn = "";
 		dth.opCode = "";
 		dth.amount = "";
